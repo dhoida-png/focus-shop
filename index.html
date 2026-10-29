@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Focus — магазин електроніки</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <div class="shop-layout">
+      <!-- Каталог товарів (старт) -->
+      <section class="card catalog-card">
+        <header class="shop-header">
+          <h1><span class="brand-blue">Focus</span> - магазин електроніки</h1>
+          <p class="section-title">Прайс - лист</p>
+        </header>
+
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th>№</th>
+              <th>Товар</th>
+              <th>Ціна</th>
+            </tr>
+          </thead>
+          <tbody id="catalogBody"></tbody>
+        </table>
+      </section>
+      <!-- Каталог товарів (фініш) -->
+
+      <!-- Форма оформлення замовлення (старт) -->
+      <section class="card checkout-card">
+        <h2>Оформлення замовлення</h2>
+        <p class="subtitle">Оберіть товар та вкажіть параметри</p>
+
+        <form id="orderForm" autocomplete="off">
+          <div class="form-group">
+            <label for="customerName">Ім'я покупця:</label>
+            <input
+              type="text"
+              id="customerName"
+              placeholder="Введіть ваше ім'я"
+            />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group flex-2">
+              <label for="productSelect">Обраний товар:</label>
+              <select id="productSelect">
+                <option value="" disabled selected>Оберіть позицію...</option>
+              </select>
+            </div>
+
+            <div class="form-group flex-1">
+              <label for="productQty">Кількість:</label>
+              <input type="number" id="productQty" min="1" step="1" value="1" />
+            </div>
+          </div>
+
+          <div class="checkbox-box">
+            <!-- Доставка -->
+            <label class="checkbox-row">
+              <input type="checkbox" id="needsShipping" />
+              <span>Доставка кур'єром (безкоштовно від 1500 грн)</span>
+            </label>
+
+            <hr
+              style="
+                border: none;
+                border-top: 1px solid #e2e8f0;
+                margin: 12px 0 8px 0;
+              "
+            />
+
+            <!-- Блок питання про статус клієнта -->
+            <div id="statusGroup" class="status-group">
+              <span class="status-title">Ви у нас вже купували?</span>
+
+              <label class="checkbox-row">
+                <input type="radio" name="clientStatus" value="regular" />
+                <span>Так, я постійний клієнт (+5% знижки)</span>
+              </label>
+
+              <label class="checkbox-row">
+                <input type="radio" name="clientStatus" value="first_time" />
+                <span>Перший раз на сайті</span>
+              </label>
+
+              <label class="checkbox-row">
+                <input
+                  type="radio"
+                  name="clientStatus"
+                  value="not_client_yet"
+                />
+                <span>Ще не ваш(а) клієнт(ка)</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="paymentType">Спосіб оплати:</label>
+            <select id="paymentType">
+              <option value="готівка">Готівка при отриманні</option>
+              <option value="банківська картка">Банківська картка</option>
+              <option value="переказ">Переказ за реквізитами</option>
+            </select>
+          </div>
+
+          <div class="button-row">
+            <button type="button" id="calculate" class="btn btn-green">
+              Розрахувати замовлення
+            </button>
+            <button type="button" id="resetBtn" class="btn btn-secondary">
+              Очистити
+            </button>
+          </div>
+        </form>
+
+        <p id="error" class="error-box"></p>
+        <div id="result" class="result-receipt"></div>
+      </section>
+      <!-- Форма оформлення замовлення (фініш) -->
+    </div>
+
+    <script src="js/index.js"></script>
+  </body>
+</html>
